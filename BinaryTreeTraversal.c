@@ -36,13 +36,34 @@ void inOrder(struct node* root) {
 	inOrder(root->right);
 }
 
+void preOrder(struct node* root) {
+	if (root == NULL)
+		return;
+	printf("%d ", root->val);
+	preOrder(root->left);
+	preOrder(root->right);
+}
+
+void postOrder(struct node* root) {
+	if (root == NULL)
+		return;
+	preOrder(root->left);
+	preOrder(root->right);
+	printf("%d ", root->val);
+}
+
 int main() {
 	struct node* root = newNode(1);
 	struct node* rootLeft = addLeft(root, 2);
-	struct node* rootRight = addRight(root, 4);
-	struct node* LeftLeft = addLeft(rootLeft, 3);
-	printf("Inorder Traversal: ");
+	struct node* rootRight = addRight(root, 3);
+	struct node* LeftLeft = addLeft(rootLeft, 4);
+	struct node* LeftRight = addRight(rootLeft, 5);
+	printf("\nInOrder Traversal: ");
 	inOrder(root);
+	printf("\nPreOrder Traversal: ");
+	preOrder(root);
+	printf("\nPostOrder Traversal: ");
+	postOrder(root);
 	printf("\n");
 	return 0;
 }
