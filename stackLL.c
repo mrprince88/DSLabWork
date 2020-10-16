@@ -15,7 +15,7 @@ void push(int data) {
         top = new;
         pointer = new;
     } else {
-        top->next = new;
+        new->next = top;
         top = new;
     }
     printf("Entered Successfully!\n");
