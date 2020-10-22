@@ -6,7 +6,7 @@ void swap(int a[], int i, int j) {
 	a[j] = t;
 }
 
-void siftDown(int a[], int n, int i) {
+void Heapify(int a[], int n, int i) {
 	int largest = i;
 	int leftChild = 2 * i + 1;
 	int rightChild = 2 * i + 2;
@@ -17,16 +17,16 @@ void siftDown(int a[], int n, int i) {
 		largest = rightChild;
 	if (largest != i) {
 		swap(a, i, largest);
-		siftDown(a, n, largest);
+		Heapify(a, n, largest);
 	}
 }
 
 void heapSort(int a[], int n) {
 	for (int i = n / 2 - 1; i >= 0; i--)
-		siftDown(a, n, i);
+		Heapify(a, n, i);
 	for (int i = n - 1; i >= 1; i--) {
 		swap(a, i, 0);
-		siftDown(a, i, 0);
+		Heapify(a, i, 0);
 	}
 }
 
